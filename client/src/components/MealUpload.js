@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Box, Button, Container, Typography} from '@mui/material';
+import React, { useState } from 'react';
+import { Box, Button, Container, Typography } from '@mui/material';
 import axios from 'axios';
 
 const MealUpload = () => {
@@ -41,21 +41,43 @@ const MealUpload = () => {
 
     return (
         <Container component="main" maxWidth="xs">
-            <Box sx={{display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 3}}>
-                <Typography variant="h5" gutterBottom>Upload Your Meal</Typography>
-                <form onSubmit={handleSubmit} style={{width: '100%'}}>
-                    <input type="file" onChange={handleFileChange} style={{margin: '10px 0'}}/>
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: 3, backgroundColor: '#fff', borderRadius: '8px', boxShadow: 3 }}>
+                <Typography variant="h5" gutterBottom sx={{ color: '#a7c957' }}>
+                    Upload Your Meal
+                </Typography>
+                <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+                    <input
+                        type="file"
+                        onChange={handleFileChange}
+                        style={{
+                            margin: '10px 0',
+                            padding: '8px',
+                            border: '1px solid #ccc',
+                            borderRadius: '5px',
+                            width: '100%'
+                        }}
+                    />
                     <Button
                         type="submit"
                         variant="contained"
                         color="primary"
                         fullWidth
-                        sx={{marginTop: 2}}
+                        sx={{
+                            marginTop: 2,
+                            backgroundColor: '#a7c957',
+                            '&:hover': {
+                                backgroundColor: '#8da74f',
+                            },
+                        }}
                     >
                         Upload
                     </Button>
                 </form>
-                {message && <Typography variant="body2" color="error" sx={{marginTop: 2}}>{message}</Typography>}
+                {message && (
+                    <Typography variant="body2" color="error" sx={{ marginTop: 2 }}>
+                        {message}
+                    </Typography>
+                )}
             </Box>
         </Container>
     );

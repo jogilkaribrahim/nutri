@@ -1,6 +1,6 @@
 import React from 'react';
-import {AppBar, Button, Toolbar, Typography} from '@mui/material';
-import {useNavigate} from 'react-router-dom';
+import { AppBar, Button, Toolbar, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
     const history = useNavigate();
@@ -12,14 +12,47 @@ const Navbar = () => {
     };
 
     return (
-        <AppBar position="static" sx={{marginBottom: 3}}>
+        <AppBar position="static" sx={{ marginBottom: 3, backgroundColor: '#a7c957' }}>
             <Toolbar>
-                <Typography variant="h6" sx={{flexGrow: 1, cursor: 'pointer'}} onClick={() => history.push('/upload')}>
-                    Meal Tracker
+                <Typography
+                    variant="h6"
+                    sx={{
+                        flexGrow: 1,
+                        cursor: 'pointer',
+                        color: 'white',
+                        '&:hover': { color: '#fff', textDecoration: 'underline' },
+                    }}
+                    onClick={() => history('/upload')}
+                >
+                    Nutrio
                 </Typography>
-                <Button color="inherit" onClick={() => history('/upload')}>Upload</Button>
-                <Button color="inherit" onClick={() => history('/history')}>History</Button>
-                <Button color="inherit" onClick={handleLogout}>Logout</Button>
+                <Button
+                    color="inherit"
+                    sx={{
+                        '&:hover': { backgroundColor: '#8da74f' },
+                    }}
+                    onClick={() => history('/upload')}
+                >
+                    Upload
+                </Button>
+                <Button
+                    color="inherit"
+                    sx={{
+                        '&:hover': { backgroundColor: '#8da74f' },
+                    }}
+                    onClick={() => history('/history')}
+                >
+                    History
+                </Button>
+                <Button
+                    color="inherit"
+                    sx={{
+                        '&:hover': { backgroundColor: '#8da74f' },
+                    }}
+                    onClick={handleLogout}
+                >
+                    Logout
+                </Button>
             </Toolbar>
         </AppBar>
     );
